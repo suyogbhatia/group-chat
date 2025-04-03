@@ -11,10 +11,12 @@ io.on('connection',(socket)=>{
         io.emit('message', msg);
     })
 })
+
+app.use(express.static(__dirname + '../react-app/build'));
 app.get('/', (req, res)=>{
     res.sendFile(__dirname +"/index.html");
 })
 
-server.listen(3000, ()=> {
-    console.log("Server is listening to port: 3000");
+server.listen(8080, ()=> {
+    console.log("Server is listening to port: 8080");
 });
